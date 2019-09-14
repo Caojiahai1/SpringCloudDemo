@@ -17,6 +17,7 @@
     <module>EurekaServer3000</module>
     <module>User</module>
     <module>Order</module>
+      <module>Order1</module>
   </modules>
 
   <name>SpringCloudDemo</name>

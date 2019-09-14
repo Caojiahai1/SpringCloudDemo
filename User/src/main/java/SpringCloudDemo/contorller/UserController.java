@@ -2,6 +2,7 @@ package SpringCloudDemo.contorller;
 
 import SpringCloudDemo.service.OrderFeign;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class UserController {
 
     @Autowired
+//    @LoadBalanced
     private OrderFeign orderFeign;
 
     @GetMapping("/getOrder")
