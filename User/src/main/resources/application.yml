@@ -12,4 +12,8 @@ eureka:
 spring:
   application:
     name: client-user
+# 启用熔断器
+feign:
+  hystrix:
+    enabled: true
 

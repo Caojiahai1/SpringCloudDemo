@@ -15,9 +15,12 @@ import java.util.Map;
 public class OrderController {
 
     @GetMapping("/getOrder")
-    public Object getOrder() {
+    public Object getOrder() throws Exception {
         Map<String, String> map = new HashMap<>();
         map.put("value", "Order");
+        if (true) {
+            throw new Exception();
+        }
         return map;
     }
 }
