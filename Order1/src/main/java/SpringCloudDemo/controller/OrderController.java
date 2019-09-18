@@ -18,6 +18,12 @@ public class OrderController {
     public Object getOrder() {
         Map<String, String> map = new HashMap<>();
         map.put("value", "Order1");
+        try {
+            System.out.println("调用服务order1");
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         return map;
     }
 }

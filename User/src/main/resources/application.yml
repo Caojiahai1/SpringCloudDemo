@@ -12,8 +12,26 @@ eureka:
 spring:
   application:
     name: client-user
-# 启用熔断器
+# feign启用熔断器
 feign:
   hystrix:
     enabled: true
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 20000
+      circuitBreaker:
+        requestVolumeThreshold: 20 # 达到服务连续请求失败次数，会开启熔断器，接下来的请求直接调用fallback降级方法
+        sleepWindowInMilliseconds: 5000 # 熔断器开启后重试请求的时间，如果请求成功则关闭熔断器，否则继续开启熔断器
+  threadpool:
+    default:
+      coreSize: 3 # 限流，当有10线程正在请求一个服务的时候，下面的服务请求直接调用fallback降级方法
+# 超时时间 因为feign调用了hystrix和ribbon两层，所以他们两的超时时间一起配置才能触发feign的超时时间
+ribbon:
+  ReadTimeout: 5000
+  ConnectTimeout: 5000
+
 

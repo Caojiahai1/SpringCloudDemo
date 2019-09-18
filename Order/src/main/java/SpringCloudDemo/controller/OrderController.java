@@ -18,8 +18,9 @@ public class OrderController {
     public Object getOrder() throws Exception {
         Map<String, String> map = new HashMap<>();
         map.put("value", "Order");
+        System.out.println("调用了order服务");
         if (true) {
-            throw new Exception();
+            throw new Exception("error");
         }
         return map;
     }
