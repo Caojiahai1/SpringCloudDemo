@@ -1,0 +1,22 @@
+server:
+  port: 9000
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:3000/eureka
+  instance:
+      instance-id: zuul-0 #此实例注册到eureka服务端的唯一的实例ID
+      prefer-ip-address: true #是否显示IP地址
+      leaseRenewalIntervalInSeconds: 10 #eureka客户需要多长时间发送心跳给eureka服务器，表明它仍然活着,默认为30 秒 (与下面配置的单位都是秒)
+      leaseExpirationDurationInSeconds: 30 #Eureka服务器在接收到实例的最后一次发出的心跳后，需要等待多久才可以将此实例删除，默认为90秒
+spring:
+  application:
+    name: zuul
+zuul:
+  ignoredServices: '*' # 禁止使用服务吗调用
+  routes:
+    users:
+      path: /order/** # 映射后的路径
+      serviceId: server-order # 微服务名
+  prefix: /api # 统一前缀
+

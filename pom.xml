@@ -25,6 +25,8 @@
     <module>User</module>
     <module>Order</module>
       <module>Order1</module>
+      <module>Zuul</module>
+      <module>Zuul1</module>
   </modules>
 
   <name>SpringCloudDemo</name>

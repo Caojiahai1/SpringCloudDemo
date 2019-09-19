@@ -19,9 +19,9 @@ public class OrderController {
         Map<String, String> map = new HashMap<>();
         map.put("value", "Order");
         System.out.println("调用了order服务");
-        if (true) {
-            throw new Exception("error");
-        }
+//        if (true) {
+//            throw new Exception("error");
+//        }
         return map;
     }
 }

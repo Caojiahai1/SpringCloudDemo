@@ -1,6 +1,7 @@
 package SpringCloudDemo.contorller;
 
 import SpringCloudDemo.service.OrderFeign;
+import SpringCloudDemo.service.ZuulFeign;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,16 +22,23 @@ public class UserController {
     @Autowired
     private RestTemplate restTemplate;
 
+    @Autowired
+    private ZuulFeign zuulFeign;
+
     @GetMapping("/getOrder")
-//    @HystrixCommand
     public Object getOrder() {
+        return orderFeign.getOrder();
+    }
+
+    @GetMapping("/api/order/getOrder")
+    public Object apiGetOrder() {
         return orderFeign.getOrder();
     }
 
     @GetMapping("/getOrder.do")
     @HystrixCommand(fallbackMethod = "fallbackMethod")
     public Object getOrderdo() {
-        return restTemplate.getForObject("http://SERVER-ORDER/getOrder", Object.class);
+        return restTemplate.getForObject("http://ZUUL/api/order/getOrder", Object.class);
     }
 
     private Object fallbackMethod() {
