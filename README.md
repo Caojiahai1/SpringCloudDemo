@@ -5,3 +5,4 @@ SpringCloud微服务搭建demo
 使用feign作为webservice客户端
 使用hystrix作为熔断器
 使用Zuul作为网关（zuul）
+使用HystrixDashbord监控

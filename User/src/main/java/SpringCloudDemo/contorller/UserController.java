@@ -38,7 +38,7 @@ public class UserController {
     @GetMapping("/getOrder.do")
     @HystrixCommand(fallbackMethod = "fallbackMethod")
     public Object getOrderdo() {
-        return restTemplate.getForObject("http://ZUUL/api/order/getOrder", Object.class);
+        return restTemplate.getForObject("http://SERVER_ORDER/getOrder", Object.class);
     }
 
     private Object fallbackMethod() {

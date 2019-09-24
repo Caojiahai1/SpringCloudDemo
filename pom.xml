@@ -27,6 +27,7 @@
       <module>Order1</module>
       <module>Zuul</module>
       <module>Zuul1</module>
+      <module>HystrixDashbord</module>
   </modules>
 
   <name>SpringCloudDemo</name>
