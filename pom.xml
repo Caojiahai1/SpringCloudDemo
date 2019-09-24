@@ -29,6 +29,7 @@
       <module>Zuul1</module>
       <module>HystrixDashbord</module>
       <module>ConfigServer</module>
+      <module>ZipkinServer</module>
   </modules>
 
   <name>SpringCloudDemo</name>

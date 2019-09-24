@@ -1,0 +1,19 @@
+server:
+  port: 7070
+# 这个配置解释一下： 在zipkin2.7.x以后便不支持自定义服务器需要使用官方的版本或者Docker 但是如果还是要使用的话就得加上这个配置。
+management:
+  metrics:
+    web:
+      server:
+        autoTimeRequests: false
+zipkin:
+  storage:
+    type: elasticsearch
+    elasticsearch:
+      cluster: elasticsearch
+      hosts: http://localhost:9200
+      index: zipkin
+
+
+
+
